@@ -236,7 +236,7 @@ Public Class FormVentas
                 End Using
             End If
         Else
-            MessageBox.Show("Seleccione una venta para eliminar.")
+            MessageBox.Show("Seleccione una venta para eliminar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End If
 
     End Sub

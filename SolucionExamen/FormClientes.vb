@@ -148,7 +148,7 @@ Public Class FormClientes
                 End Using
             End If
         Else
-            MessageBox.Show("Seleccione un cliente para eliminar.")
+            MessageBox.Show("Seleccione un cliente para eliminar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End If
     End Sub
 

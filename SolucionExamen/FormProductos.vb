@@ -137,7 +137,7 @@ Public Class FormProductos
                 End Using
             End If
         Else
-            MessageBox.Show("Seleccione un producto para eliminar.")
+            MessageBox.Show("Seleccione un producto para eliminar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End If
     End Sub
 
