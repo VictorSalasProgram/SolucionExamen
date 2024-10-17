@@ -486,7 +486,9 @@ Partial Class FormVentasItems
         Me.Controls.Add(Me.btnAgregarVenta)
         Me.Controls.Add(Me.dgvVentasItems)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MaximizeBox = False
         Me.Name = "FormVentasItems"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Ventas por Items"
         CType(Me.dgvVentasItems, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlAggVentaItems.ResumeLayout(False)

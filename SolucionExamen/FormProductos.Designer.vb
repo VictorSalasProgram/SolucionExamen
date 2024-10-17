@@ -333,7 +333,9 @@ Partial Class FormProductos
         Me.Controls.Add(Me.btnAgregarProducto)
         Me.Controls.Add(Me.dgvProductos)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MaximizeBox = False
         Me.Name = "FormProductos"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Productos"
         CType(Me.dgvProductos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlAggProducto.ResumeLayout(False)

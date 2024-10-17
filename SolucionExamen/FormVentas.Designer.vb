@@ -339,7 +339,9 @@ Partial Class FormVentas
         Me.Controls.Add(Me.btnAgregarVenta)
         Me.Controls.Add(Me.dgvVentas)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MaximizeBox = False
         Me.Name = "FormVentas"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Ventas"
         CType(Me.dgvVentas, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlAggVenta.ResumeLayout(False)

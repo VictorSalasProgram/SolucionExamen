@@ -333,7 +333,9 @@ Partial Class FormClientes
         Me.Controls.Add(Me.txtBuscadorClientes)
         Me.Controls.Add(Me.dgvClientes)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MaximizeBox = False
         Me.Name = "FormClientes"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Clientes"
         CType(Me.dgvClientes, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlAggCliente.ResumeLayout(False)
