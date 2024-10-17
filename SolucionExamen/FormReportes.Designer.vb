@@ -24,6 +24,7 @@ Partial Class FormReportes
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormReportes))
         Me.PruebademoDataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.PruebademoDataSet = New SolucionExamen.pruebademoDataSet()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
@@ -58,6 +59,7 @@ Partial Class FormReportes
         '
         Me.ClientSize = New System.Drawing.Size(973, 478)
         Me.Controls.Add(Me.ReportViewer1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FormReportes"
         Me.Text = "Reportes"
         CType(Me.PruebademoDataSetBindingSource, System.ComponentModel.ISupportInitialize).EndInit()

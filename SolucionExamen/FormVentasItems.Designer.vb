@@ -22,6 +22,7 @@ Partial Class FormVentasItems
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormVentasItems))
         Me.dgvVentasItems = New System.Windows.Forms.DataGridView()
         Me.btnEliminarCliente = New System.Windows.Forms.Button()
         Me.bntModificarVentasItems = New System.Windows.Forms.Button()
@@ -484,6 +485,7 @@ Partial Class FormVentasItems
         Me.Controls.Add(Me.bntModificarVentasItems)
         Me.Controls.Add(Me.btnAgregarVenta)
         Me.Controls.Add(Me.dgvVentasItems)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FormVentasItems"
         Me.Text = "Ventas por Items"
         CType(Me.dgvVentasItems, System.ComponentModel.ISupportInitialize).EndInit()

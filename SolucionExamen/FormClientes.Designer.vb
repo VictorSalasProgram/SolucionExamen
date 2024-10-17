@@ -22,10 +22,9 @@ Partial Class FormClientes
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormClientes))
         Me.dgvClientes = New System.Windows.Forms.DataGridView()
         Me.txtBuscadorClientes = New System.Windows.Forms.TextBox()
-        Me.btnAgregarCliente = New System.Windows.Forms.Button()
-        Me.bntModificarCliente = New System.Windows.Forms.Button()
         Me.btnEliminarCliente = New System.Windows.Forms.Button()
         Me.pnlAggCliente = New System.Windows.Forms.Panel()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -47,6 +46,8 @@ Partial Class FormClientes
         Me.txtTelefonoModificar = New System.Windows.Forms.TextBox()
         Me.txtCorreoModificar = New System.Windows.Forms.TextBox()
         Me.txtClienteModificar = New System.Windows.Forms.TextBox()
+        Me.bntModificarCliente = New System.Windows.Forms.Button()
+        Me.btnAgregarCliente = New System.Windows.Forms.Button()
         CType(Me.dgvClientes, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlAggCliente.SuspendLayout()
         Me.pnlModificarCliente.SuspendLayout()
@@ -69,33 +70,6 @@ Partial Class FormClientes
         Me.txtBuscadorClientes.Name = "txtBuscadorClientes"
         Me.txtBuscadorClientes.Size = New System.Drawing.Size(583, 34)
         Me.txtBuscadorClientes.TabIndex = 1
-        '
-        'btnAgregarCliente
-        '
-        Me.btnAgregarCliente.BackColor = System.Drawing.SystemColors.AppWorkspace
-        Me.btnAgregarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAgregarCliente.Font = New System.Drawing.Font("Consolas", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAgregarCliente.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.btnAgregarCliente.Location = New System.Drawing.Point(836, 77)
-        Me.btnAgregarCliente.Name = "btnAgregarCliente"
-        Me.btnAgregarCliente.Size = New System.Drawing.Size(191, 63)
-        Me.btnAgregarCliente.TabIndex = 2
-        Me.btnAgregarCliente.Text = "Agregar"
-        Me.btnAgregarCliente.UseVisualStyleBackColor = False
-        '
-        'bntModificarCliente
-        '
-        Me.bntModificarCliente.BackColor = System.Drawing.SystemColors.AppWorkspace
-        Me.bntModificarCliente.Enabled = False
-        Me.bntModificarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.bntModificarCliente.Font = New System.Drawing.Font("Consolas", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bntModificarCliente.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.bntModificarCliente.Location = New System.Drawing.Point(836, 173)
-        Me.bntModificarCliente.Name = "bntModificarCliente"
-        Me.bntModificarCliente.Size = New System.Drawing.Size(191, 63)
-        Me.bntModificarCliente.TabIndex = 3
-        Me.bntModificarCliente.Text = "Modificar"
-        Me.bntModificarCliente.UseVisualStyleBackColor = False
         '
         'btnEliminarCliente
         '
@@ -319,6 +293,33 @@ Partial Class FormClientes
         Me.txtClienteModificar.Size = New System.Drawing.Size(219, 22)
         Me.txtClienteModificar.TabIndex = 0
         '
+        'bntModificarCliente
+        '
+        Me.bntModificarCliente.BackColor = System.Drawing.SystemColors.AppWorkspace
+        Me.bntModificarCliente.Enabled = False
+        Me.bntModificarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.bntModificarCliente.Font = New System.Drawing.Font("Consolas", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bntModificarCliente.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.bntModificarCliente.Location = New System.Drawing.Point(836, 173)
+        Me.bntModificarCliente.Name = "bntModificarCliente"
+        Me.bntModificarCliente.Size = New System.Drawing.Size(191, 63)
+        Me.bntModificarCliente.TabIndex = 3
+        Me.bntModificarCliente.Text = "Modificar"
+        Me.bntModificarCliente.UseVisualStyleBackColor = False
+        '
+        'btnAgregarCliente
+        '
+        Me.btnAgregarCliente.BackColor = System.Drawing.SystemColors.AppWorkspace
+        Me.btnAgregarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAgregarCliente.Font = New System.Drawing.Font("Consolas", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAgregarCliente.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.btnAgregarCliente.Location = New System.Drawing.Point(836, 77)
+        Me.btnAgregarCliente.Name = "btnAgregarCliente"
+        Me.btnAgregarCliente.Size = New System.Drawing.Size(191, 63)
+        Me.btnAgregarCliente.TabIndex = 2
+        Me.btnAgregarCliente.Text = "Agregar"
+        Me.btnAgregarCliente.UseVisualStyleBackColor = False
+        '
         'FormClientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -331,6 +332,7 @@ Partial Class FormClientes
         Me.Controls.Add(Me.btnAgregarCliente)
         Me.Controls.Add(Me.txtBuscadorClientes)
         Me.Controls.Add(Me.dgvClientes)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FormClientes"
         Me.Text = "Clientes"
         CType(Me.dgvClientes, System.ComponentModel.ISupportInitialize).EndInit()
