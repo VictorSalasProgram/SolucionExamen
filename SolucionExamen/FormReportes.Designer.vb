@@ -24,12 +24,22 @@ Partial Class FormReportes
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
-        Me.PruebademoDataSet = New SolucionExamen.pruebademoDataSet()
         Me.PruebademoDataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        CType(Me.PruebademoDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PruebademoDataSet = New SolucionExamen.pruebademoDataSet()
+        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         CType(Me.PruebademoDataSetBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PruebademoDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'PruebademoDataSetBindingSource
+        '
+        Me.PruebademoDataSetBindingSource.DataSource = Me.PruebademoDataSet
+        Me.PruebademoDataSetBindingSource.Position = 0
+        '
+        'PruebademoDataSet
+        '
+        Me.PruebademoDataSet.DataSetName = "pruebademoDataSet"
+        Me.PruebademoDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'ReportViewer1
         '
@@ -44,23 +54,14 @@ Partial Class FormReportes
         Me.ReportViewer1.Size = New System.Drawing.Size(973, 478)
         Me.ReportViewer1.TabIndex = 0
         '
-        'PruebademoDataSet
-        '
-        Me.PruebademoDataSet.DataSetName = "pruebademoDataSet"
-        Me.PruebademoDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'PruebademoDataSetBindingSource
-        '
-        Me.PruebademoDataSetBindingSource.DataSource = Me.PruebademoDataSet
-        Me.PruebademoDataSetBindingSource.Position = 0
-        '
         'FormReportes
         '
         Me.ClientSize = New System.Drawing.Size(973, 478)
         Me.Controls.Add(Me.ReportViewer1)
         Me.Name = "FormReportes"
-        CType(Me.PruebademoDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Text = "Reportes"
         CType(Me.PruebademoDataSetBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PruebademoDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

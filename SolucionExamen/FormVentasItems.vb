@@ -60,7 +60,7 @@ Public Class FormVentasItems
     End Sub
     Private Sub CargarVentasItems(Optional ByVal busqueda As String = "")
         ' Aquí debes establecer la conexión con la base de datos
-        Dim connectionString As String = "Server=localhost\SQLEXPRESS;Database=pruebademo;Integrated Security=True;MultipleActiveResultSets=True;Timeout=120;"
+        Dim connectionString As String = "Server = localhost \ SQLEXPRESS;Database=pruebademo;Integrated Security=True;MultipleActiveResultSets=True;Timeout=120;"
 
         ' Ajustamos la consulta SQL para buscar por IDVenta, IDProducto o PrecioUnitario
         Dim query As String = "SELECT * FROM VentasItems WHERE (IDVenta LIKE @busqueda OR IDProducto LIKE @busqueda OR CAST(PrecioUnitario AS NVARCHAR) LIKE @busqueda OR CAST(Cantidad AS NVARCHAR) LIKE @busqueda OR CAST(PrecioTotal AS NVARCHAR) LIKE @busqueda)"
@@ -136,7 +136,7 @@ Public Class FormVentasItems
         End If
 
         ' Establecer la cadena de conexión a la base de datos
-        Dim connectionString As String = "Server=localhost\SQLEXPRESS;Database=pruebademo;Integrated Security=True;MultipleActiveResultSets=True;Timeout=120;"
+        Dim connectionString As String = "Server = localhost \ SQLEXPRESS;Database=pruebademo;Integrated Security=True;MultipleActiveResultSets=True;Timeout=120;"
 
         ' Crear la consulta SQL para insertar un nuevo cliente
         Dim query As String = "INSERT INTO Ventasitems (IDVenta, IDProducto, Preciounitario, Cantidad, Preciototal) VALUES (@IDVenta, @IDProducto, @PrecioUnitario, @Cantidad, @PrecioTotal)"
@@ -181,7 +181,7 @@ Public Class FormVentasItems
         Dim idVenta As Integer
         If Integer.TryParse(txtNroVenta.Text, idVenta) Then
             ' Establecer la cadena de conexión a la base de datos
-            Dim connectionString As String = "Server=localhost\SQLEXPRESS;Database=pruebademo;Integrated Security=True;"
+            Dim connectionString As String = "Server = localhost \ SQLEXPRESS;Database=pruebademo;Integrated Security=True;MultipleActiveResultSets=True;Timeout=120;"
 
             ' Crear la consulta SQL para obtener el IDCliente y el Total asociados al IDVenta
             Dim queryVenta As String = "SELECT IDCliente, Total FROM ventas WHERE ID = @IDVenta"
@@ -251,7 +251,7 @@ Public Class FormVentasItems
         ' Solo actualizar txtPrecioUnitario si hay un producto seleccionado
         If cmbProductos.SelectedIndex <> -1 Then
             ' Establecer la cadena de conexión a la base de datos
-            Dim connectionString As String = "Server=localhost\SQLEXPRESS;Database=pruebademo;Integrated Security=True;"
+            Dim connectionString As String = "Server = localhost \ SQLEXPRESS;Database=pruebademo;Integrated Security=True;MultipleActiveResultSets=True;Timeout=120;"
 
             ' Obtener el ID del producto seleccionado
             Dim idProducto As Integer
@@ -360,7 +360,7 @@ Public Class FormVentasItems
         Dim idVenta As Integer
         If Integer.TryParse(txtNroVentaModificar.Text, idVenta) Then
             ' Establecer la cadena de conexión a la base de datos
-            Dim connectionString As String = "Server=localhost\SQLEXPRESS;Database=pruebademo;Integrated Security=True;"
+            Dim connectionString As String = "Server = localhost \ SQLEXPRESS;Database=pruebademo;Integrated Security=True;MultipleActiveResultSets=True;Timeout=120;"
 
             ' Crear la consulta SQL para obtener el IDCliente y el Total asociados al IDVenta
             Dim queryVenta As String = "SELECT IDCliente, Total FROM ventas WHERE ID = @IDVenta"
@@ -438,7 +438,7 @@ Public Class FormVentasItems
         End If
 
         ' Establecer la cadena de conexión a la base de datos
-        Dim connectionString As String = "Server=localhost\SQLEXPRESS;Database=pruebademo;Integrated Security=True;MultipleActiveResultSets=True;Timeout=120;"
+        Dim connectionString As String = "Server = localhost \ SQLEXPRESS;Database=pruebademo;Integrated Security=True;MultipleActiveResultSets=True;Timeout=120;"
 
         ' Crear la consulta SQL para actualizar la venta
         Dim query As String = "UPDATE VentasItems SET IDProducto = @IDProducto, PrecioUnitario = @PrecioUnitario, Cantidad = @Cantidad, PrecioTotal = @PrecioTotal WHERE IDVenta = @IDVenta"
@@ -487,7 +487,7 @@ Public Class FormVentasItems
 
             If result = DialogResult.Yes Then
                 ' Conectar a la base de datos
-                Dim connectionString As String = "Server=localhost\SQLEXPRESS;Database=pruebademo;Integrated Security=True;MultipleActiveResultSets=True;Timeout=120;"
+                Dim connectionString As String = "Server = localhost \ SQLEXPRESS;Database=pruebademo;Integrated Security=True;MultipleActiveResultSets=True;Timeout=120;"
                 Using conn As New SqlConnection(connectionString)
                     Try
                         conn.Open()
@@ -516,5 +516,77 @@ Public Class FormVentasItems
         Else
             MessageBox.Show("Seleccione una venta para eliminar.")
         End If
+    End Sub
+
+    Private Sub pnlModificarVentaItem_Paint(sender As Object, e As PaintEventArgs) Handles pnlModificarVentaItem.Paint
+
+    End Sub
+
+
+
+
+
+    ' Variables para el arrastre del panel
+    Private mouseIsDown As Boolean = False
+    Private mouseOffset As Point
+
+    ' Evento MouseDown: cuando se hace clic en el panel
+    Private Sub pnlModificarVentaItem_MouseDown(sender As Object, e As MouseEventArgs) Handles pnlModificarVentaItem.MouseDown
+        If e.Button = MouseButtons.Left Then
+            ' Marcar que el mouse está presionado
+            mouseIsDown = True
+            ' Guardar la posición del mouse relativa al panel
+            mouseOffset = New Point(-e.X, -e.Y)
+        End If
+    End Sub
+
+    ' Evento MouseMove: cuando se mueve el mouse sobre el panel
+    Private Sub pnlModificarVentaItem11(sender As Object, e As MouseEventArgs) Handles pnlModificarVentaItem.MouseMove
+        If mouseIsDown Then
+            ' Obtener la posición actual del mouse en la pantalla
+            Dim mousePos As Point = Control.MousePosition
+            ' Ajustar la posición del panel en función del desplazamiento
+            pnlModificarVentaItem.Location = Me.PointToClient(New Point(mousePos.X + mouseOffset.X, mousePos.Y + mouseOffset.Y))
+        End If
+    End Sub
+
+    ' Evento MouseUp: cuando se suelta el botón del mouse
+    Private Sub pnlAggProducto_MouseUp(sender As Object, e As MouseEventArgs) Handles pnlModificarVentaItem.MouseUp
+        ' El mouse ya no está presionado
+        mouseIsDown = False
+    End Sub
+
+
+    'SEGUNDO PANEL
+
+
+
+    Private mouseIsDown1 As Boolean = False
+    Private mouseOffset1 As Point
+
+    ' Evento MouseDown: cuando se hace clic en el panel
+    Private Sub pnlAggVentaItems_MouseDown(sender As Object, e As MouseEventArgs) Handles pnlAggVentaItems.MouseDown
+        If e.Button = MouseButtons.Left Then
+            ' Marcar que el mouse está presionado
+            mouseIsDown1 = True
+            ' Guardar la posición del mouse relativa al panel
+            mouseOffset1 = New Point(-e.X, -e.Y)
+        End If
+    End Sub
+
+    ' Evento MouseMove: cuando se mueve el mouse sobre el panel
+    Private Sub pnlAggVentaItems1(sender As Object, e As MouseEventArgs) Handles pnlAggVentaItems.MouseMove
+        If mouseIsDown1 Then
+            ' Obtener la posición actual del mouse en la pantalla
+            Dim mousePos As Point = Control.MousePosition
+            ' Ajustar la posición del panel en función del desplazamiento
+            pnlAggVentaItems.Location = Me.PointToClient(New Point(mousePos.X + mouseOffset1.X, mousePos.Y + mouseOffset1.Y))
+        End If
+    End Sub
+
+    ' Evento MouseUp: cuando se suelta el botón del mouse
+    Private Sub pnlModificarProducto_MouseUp(sender As Object, e As MouseEventArgs) Handles pnlAggVentaItems.MouseUp
+        ' El mouse ya no está presionado
+        mouseIsDown1 = False
     End Sub
 End Class

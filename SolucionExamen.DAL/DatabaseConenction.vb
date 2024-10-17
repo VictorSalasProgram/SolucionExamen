@@ -3,7 +3,7 @@
 
 Public Class DatabaseConnection
 
-    Private connectionString As String = "Server = localhost \ SQLEXPRESS;Database=pruebademo;Integrated Security=True;MultipleActiveResultSets=True;Timeout=120"
+    Private connectionString As String = "Server = localhost \ SQLEXPRESS;Database=pruebademo;Integrated Security=True;MultipleActiveResultSets=True;Timeout=120;"
 
     Public Function GetConnection() As SqlConnection
         Return New SqlConnection(connectionString)

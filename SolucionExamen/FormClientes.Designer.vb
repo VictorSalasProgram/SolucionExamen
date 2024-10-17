@@ -332,7 +332,7 @@ Partial Class FormClientes
         Me.Controls.Add(Me.txtBuscadorClientes)
         Me.Controls.Add(Me.dgvClientes)
         Me.Name = "FormClientes"
-        Me.Text = "FormClientes"
+        Me.Text = "Clientes"
         CType(Me.dgvClientes, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlAggCliente.ResumeLayout(False)
         Me.pnlAggCliente.PerformLayout()

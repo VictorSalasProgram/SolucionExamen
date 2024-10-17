@@ -28,7 +28,7 @@ Public Class FormVentas
     End Sub
     Private Sub CargarVentas(Optional ByVal busqueda As String = "")
         ' Aquí debes establecer la conexión con la base de datos
-        Dim connectionString As String = "Server=localhost\SQLEXPRESS;Database=pruebademo;Integrated Security=True;MultipleActiveResultSets=True;Timeout=120;"
+        Dim connectionString As String = "Server = localhost \ SQLEXPRESS;Database=pruebademo;Integrated Security=True;MultipleActiveResultSets=True;Timeout=120;"
 
         ' Ajustamos la consulta SQL para buscar por IDVenta, IDProducto o PrecioUnitario
         Dim query As String = "SELECT * FROM VentasItems WHERE (IDVenta LIKE @busqueda OR IDProducto LIKE @busqueda OR CAST(PrecioUnitario AS NVARCHAR) LIKE @busqueda OR CAST(Cantidad AS NVARCHAR) LIKE @busqueda OR CAST(PrecioTotal AS NVARCHAR) LIKE @busqueda)"
@@ -72,7 +72,7 @@ Public Class FormVentas
         End If
 
         ' Establecer la cadena de conexión a la base de datos
-        Dim connectionString As String = "Server=localhost\SQLEXPRESS;Database=pruebademo;Integrated Security=True;MultipleActiveResultSets=True;Timeout=120;"
+        Dim connectionString As String = "Server = localhost \ SQLEXPRESS;Database=pruebademo;Integrated Security=True;MultipleActiveResultSets=True;Timeout=120;"
 
         ' Crear la consulta SQL para insertar una nueva venta
         Dim query As String = "INSERT INTO Ventas (IDCliente, Fecha, Total) VALUES (@IDCliente, @Fecha, @Total)"
@@ -167,7 +167,7 @@ Public Class FormVentas
         Dim idVenta As Integer = Convert.ToInt32(filaSeleccionada.Cells("ID").Value) ' Cambiar a "ID" para obtener el ID de la venta
 
         ' Establecer la cadena de conexión a la base de datos
-        Dim connectionString As String = "Server=localhost\SQLEXPRESS;Database=pruebademo;Integrated Security=True;MultipleActiveResultSets=True;Timeout=120;"
+        Dim connectionString As String = "Server = localhost \ SQLEXPRESS;Database=pruebademo;Integrated Security=True;MultipleActiveResultSets=True;Timeout=120;"
 
         ' Crear la consulta SQL para actualizar la venta
         Dim query As String = "UPDATE Ventas SET IDCliente = @IDCliente, Fecha = @Fecha, Total = @Total WHERE ID = @IDVenta"
@@ -209,7 +209,7 @@ Public Class FormVentas
 
             If result = DialogResult.Yes Then
                 ' Conectar a la base de datos
-                Dim connectionString As String = "Server=localhost\SQLEXPRESS;Database=pruebademo;Integrated Security=True;MultipleActiveResultSets=True;Timeout=120;"
+                Dim connectionString As String = "Server = localhost \ SQLEXPRESS;Database=pruebademo;Integrated Security=True;MultipleActiveResultSets=True;Timeout=120;"
                 Using conn As New SqlConnection(connectionString)
                     Try
                         conn.Open()
@@ -239,5 +239,73 @@ Public Class FormVentas
             MessageBox.Show("Seleccione una venta para eliminar.")
         End If
 
+    End Sub
+
+
+
+
+
+    ' Variables para el arrastre del panel
+    Private mouseIsDown As Boolean = False
+    Private mouseOffset As Point
+
+    ' Evento MouseDown: cuando se hace clic en el panel
+    Private Sub pnlAggVentas_MouseDown(sender As Object, e As MouseEventArgs) Handles pnlAggVenta.MouseDown
+        If e.Button = MouseButtons.Left Then
+            ' Marcar que el mouse está presionado
+            mouseIsDown = True
+            ' Guardar la posición del mouse relativa al panel
+            mouseOffset = New Point(-e.X, -e.Y)
+        End If
+    End Sub
+
+    ' Evento MouseMove: cuando se mueve el mouse sobre el panel
+    Private Sub pnlAggVentas1(sender As Object, e As MouseEventArgs) Handles pnlAggVenta.MouseMove
+        If mouseIsDown Then
+            ' Obtener la posición actual del mouse en la pantalla
+            Dim mousePos As Point = Control.MousePosition
+            ' Ajustar la posición del panel en función del desplazamiento
+            pnlAggVenta.Location = Me.PointToClient(New Point(mousePos.X + mouseOffset.X, mousePos.Y + mouseOffset.Y))
+        End If
+    End Sub
+
+    ' Evento MouseUp: cuando se suelta el botón del mouse
+    Private Sub pnlAggVenta_MouseUp(sender As Object, e As MouseEventArgs) Handles pnlAggVenta.MouseUp
+        ' El mouse ya no está presionado
+        mouseIsDown = False
+    End Sub
+
+
+    'SEGUNDO PANEL
+
+
+
+    Private mouseIsDown1 As Boolean = False
+    Private mouseOffset1 As Point
+
+    ' Evento MouseDown: cuando se hace clic en el panel
+    Private Sub pnlModificarVenta_MouseDown(sender As Object, e As MouseEventArgs) Handles pnlModificarVenta.MouseDown
+        If e.Button = MouseButtons.Left Then
+            ' Marcar que el mouse está presionado
+            mouseIsDown1 = True
+            ' Guardar la posición del mouse relativa al panel
+            mouseOffset1 = New Point(-e.X, -e.Y)
+        End If
+    End Sub
+
+    ' Evento MouseMove: cuando se mueve el mouse sobre el panel
+    Private Sub pnlModificarVenta1(sender As Object, e As MouseEventArgs) Handles pnlModificarVenta.MouseMove
+        If mouseIsDown1 Then
+            ' Obtener la posición actual del mouse en la pantalla
+            Dim mousePos As Point = Control.MousePosition
+            ' Ajustar la posición del panel en función del desplazamiento
+            pnlModificarVenta.Location = Me.PointToClient(New Point(mousePos.X + mouseOffset1.X, mousePos.Y + mouseOffset1.Y))
+        End If
+    End Sub
+
+    ' Evento MouseUp: cuando se suelta el botón del mouse
+    Private Sub pnlAggVentaItems_MouseUp(sender As Object, e As MouseEventArgs) Handles pnlModificarVenta.MouseUp
+        ' El mouse ya no está presionado
+        mouseIsDown1 = False
     End Sub
 End Class

@@ -2,7 +2,7 @@
 Imports SolucionExamen.BLL
 
 Public Class FormProductos
-    Private connectionString As String = "Server=localhost\SQLEXPRESS;Database=pruebademo;Integrated Security=True;MultipleActiveResultSets=True;Timeout=120;"
+    Private connectionString As String = "Server = localhost;Uid=sa;Pwd=sasa;MultipleActiveResultSets=True;Timeout=120;Database=pruebademo;;"
     Private ProductoBL As New ProductoBL()
     Private Sub FormProductos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
@@ -26,7 +26,7 @@ Public Class FormProductos
     End Sub
     Private Sub CargarProductos(Optional ByVal busqueda As String = "")
         ' Aquí debes establecer la conexión con la base de datos
-        Dim connectionString As String = "Server=localhost\SQLEXPRESS;Database=pruebademo;Integrated Security=True;MultipleActiveResultSets=True;Timeout=120;"
+        Dim connectionString As String = "Server = localhost;Uid=sa;Pwd=sasa;MultipleActiveResultSets=True;Timeout=120;Database=pruebademo;"
 
         ' Ajustamos la consulta SQL para buscar por nombre, precio o categoría
         Dim query As String = "SELECT * FROM Productos WHERE (Nombre LIKE @busqueda OR Categoria LIKE @busqueda OR CAST(Precio AS NVARCHAR) LIKE @busqueda)"
@@ -58,7 +58,7 @@ Public Class FormProductos
         End If
 
         ' Establecer la cadena de conexión a la base de datos
-        Dim connectionString As String = "Server=localhost\SQLEXPRESS;Database=pruebademo;Integrated Security=True;MultipleActiveResultSets=True;Timeout=120;"
+        Dim connectionString As String = "Server = localhost;Uid=sa;Pwd=sasa;MultipleActiveResultSets=True;Timeout=120;Database=pruebademo;"
 
         ' Crear la consulta SQL para insertar un nuevo cliente
         Dim query As String = "INSERT INTO Productos (Nombre, Precio, Categoria) VALUES (@Nombre, @Precio, @Categoria)"
@@ -109,7 +109,7 @@ Public Class FormProductos
 
             If result = DialogResult.Yes Then
                 ' Conectar a la base de datos
-                Dim connectionString As String = "Server=localhost\SQLEXPRESS;Database=pruebademo;Integrated Security=True;MultipleActiveResultSets=True;Timeout=120;"
+                Dim connectionString As String = "Server = localhost;Uid=sa;Pwd=sasa;MultipleActiveResultSets=True;Timeout=120;Database=pruebademo;"
                 Using conn As New SqlConnection(connectionString)
                     Try
                         conn.Open()
@@ -186,7 +186,7 @@ Public Class FormProductos
         Dim productoId As Integer = Convert.ToInt32(dgvProductos.SelectedRows(0).Cells(0).Value)
 
         ' Aquí debes establecer la conexión con la base de datos
-        Dim connectionString As String = "Server=localhost\SQLEXPRESS;Database=pruebademo;Integrated Security=True;MultipleActiveResultSets=True;Timeout=120;"
+        Dim connectionString As String = "Server = localhost;Uid=sa;Pwd=sasa;MultipleActiveResultSets=True;Timeout=120;Database=pruebademo;"
 
         ' Consulta SQL para actualizar el cliente
         Dim query As String = "UPDATE Productos SET Nombre = @nombre, Precio = @precio, Categoria = @categoria WHERE ID = @id"
@@ -225,5 +225,77 @@ Public Class FormProductos
     End Sub
 
 
+
+
+
+
+
+
+
+
+
+    ' Variables para el arrastre del panel
+    Private mouseIsDown As Boolean = False
+    Private mouseOffset As Point
+
+    ' Evento MouseDown: cuando se hace clic en el panel
+    Private Sub pnlAggProducto_MouseDown(sender As Object, e As MouseEventArgs) Handles pnlAggProducto.MouseDown
+        If e.Button = MouseButtons.Left Then
+            ' Marcar que el mouse está presionado
+            mouseIsDown = True
+            ' Guardar la posición del mouse relativa al panel
+            mouseOffset = New Point(-e.X, -e.Y)
+        End If
+    End Sub
+
+    ' Evento MouseMove: cuando se mueve el mouse sobre el panel
+    Private Sub pnlAggProducto1(sender As Object, e As MouseEventArgs) Handles pnlAggProducto.MouseMove
+        If mouseIsDown Then
+            ' Obtener la posición actual del mouse en la pantalla
+            Dim mousePos As Point = Control.MousePosition
+            ' Ajustar la posición del panel en función del desplazamiento
+            pnlAggProducto.Location = Me.PointToClient(New Point(mousePos.X + mouseOffset.X, mousePos.Y + mouseOffset.Y))
+        End If
+    End Sub
+
+    ' Evento MouseUp: cuando se suelta el botón del mouse
+    Private Sub pnlAggProducto_MouseUp(sender As Object, e As MouseEventArgs) Handles pnlAggProducto.MouseUp
+        ' El mouse ya no está presionado
+        mouseIsDown = False
+    End Sub
+
+
+    'SEGUNDO PANEL
+
+
+
+    Private mouseIsDown1 As Boolean = False
+    Private mouseOffset1 As Point
+
+    ' Evento MouseDown: cuando se hace clic en el panel
+    Private Sub pnlModificarProducto_MouseDown(sender As Object, e As MouseEventArgs) Handles pnlModificarProducto.MouseDown
+        If e.Button = MouseButtons.Left Then
+            ' Marcar que el mouse está presionado
+            mouseIsDown1 = True
+            ' Guardar la posición del mouse relativa al panel
+            mouseOffset1 = New Point(-e.X, -e.Y)
+        End If
+    End Sub
+
+    ' Evento MouseMove: cuando se mueve el mouse sobre el panel
+    Private Sub pnlModificarProducto1(sender As Object, e As MouseEventArgs) Handles pnlModificarProducto.MouseMove
+        If mouseIsDown1 Then
+            ' Obtener la posición actual del mouse en la pantalla
+            Dim mousePos As Point = Control.MousePosition
+            ' Ajustar la posición del panel en función del desplazamiento
+            pnlModificarProducto.Location = Me.PointToClient(New Point(mousePos.X + mouseOffset1.X, mousePos.Y + mouseOffset1.Y))
+        End If
+    End Sub
+
+    ' Evento MouseUp: cuando se suelta el botón del mouse
+    Private Sub pnlModificarProducto_MouseUp(sender As Object, e As MouseEventArgs) Handles pnlModificarProducto.MouseUp
+        ' El mouse ya no está presionado
+        mouseIsDown1 = False
+    End Sub
 
 End Class

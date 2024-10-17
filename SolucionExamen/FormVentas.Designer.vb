@@ -338,7 +338,7 @@ Partial Class FormVentas
         Me.Controls.Add(Me.btnAgregarVenta)
         Me.Controls.Add(Me.dgvVentas)
         Me.Name = "FormVentas"
-        Me.Text = "FormVentas"
+        Me.Text = "Ventas"
         CType(Me.dgvVentas, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlAggVenta.ResumeLayout(False)
         Me.pnlAggVenta.PerformLayout()
