@@ -95,6 +95,7 @@ Public Class FormVentas
                     cmbClientes.SelectedIndex = -1
                     dtpFechaVenta.Value = DateTime.Now
                     txtTotalVenta.Clear()
+                    pnlAggVenta.Visible = False
 
                     ' Si tienes algún método para actualizar la lista de ventas, lo puedes llamar aquí
                     dgvVentas.DataSource = VentaBL.ObtenerVentas() ' CargarVentas() ' Ejemplo de cómo recargar la lista de ventas

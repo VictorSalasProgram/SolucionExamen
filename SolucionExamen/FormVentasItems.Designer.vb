@@ -284,6 +284,7 @@ Partial Class FormVentasItems
         '
         Me.txtCantidad.Location = New System.Drawing.Point(282, 265)
         Me.txtCantidad.Name = "txtCantidad"
+        Me.txtCantidad.ReadOnly = True
         Me.txtCantidad.Size = New System.Drawing.Size(219, 22)
         Me.txtCantidad.TabIndex = 1
         Me.txtCantidad.Text = "0"

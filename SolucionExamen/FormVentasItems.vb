@@ -88,22 +88,56 @@ Public Class FormVentasItems
     End Sub
 
     Private Sub txtPrecioUnitario_TextChanged(sender As Object, e As EventArgs) Handles txtPrecioUnitario.TextChanged
-        Dim cantidad As Integer
-        Dim precioUnitario As Integer
-        Dim total As Integer
+        Try
+            Dim cantidad As Integer
+            Dim precioUnitario As Integer
 
-        ' Verifica si los TextBox están vacíos
-        If Integer.TryParse(txtCantidad.Text, cantidad) AndAlso Integer.TryParse(txtPrecioUnitario.Text, precioUnitario) Then
-            total = cantidad * precioUnitario
-
-        Else
-            ' Limpia el campo si hay un error
-        End If
+            ' Verifica si ambos campos contienen valores numéricos válidos
+            If Integer.TryParse(txtCantidad.Text, cantidad) AndAlso Integer.TryParse(txtPrecioUnitario.Text, precioUnitario) Then
+                ' Realiza el cálculo y coloca el resultado en txtPrecioTotal
+                txtPrecioTotal.Text = (cantidad * precioUnitario).ToString()
+            Else
+                ' Limpia el campo txtPrecioTotal si los valores no son válidos
+                txtPrecioTotal.Text = ""
+            End If
+        Catch ex As Exception
+            ' Manejo de errores, si ocurre alguna excepción
+            MessageBox.Show("Ocurrió un error: " & ex.Message)
+        End Try
     End Sub
 
 
     Private Sub txtPrecioTotal_TextChanged(sender As Object, e As EventArgs) Handles txtPrecioTotal.TextChanged
+        Try
+            ' Si txtPrecioTotal está vacío, limpia el valor de txtCantidad y termina la ejecución
+            If String.IsNullOrEmpty(txtPrecioTotal.Text) Then
+                txtCantidad.Text = ""
+                Return
+            End If
 
+            ' Verifica que ambos campos tengan valores válidos numéricos
+            Dim precioTotal As Decimal
+            Dim precioUnitario As Decimal
+
+            ' Intenta convertir los valores de los TextBox a números decimales
+            If Decimal.TryParse(txtPrecioTotal.Text, precioTotal) AndAlso Decimal.TryParse(txtPrecioUnitario.Text, precioUnitario) Then
+                ' Verifica que el precio unitario no sea cero para evitar la división por cero
+                If precioUnitario <> 0 Then
+                    ' Calcula la cantidad y la asigna al TextBox txtCantidad
+                    txtCantidad.Text = (precioTotal / precioUnitario).ToString()
+                Else
+                    ' Si el precio unitario es cero, muestra 0 en txtCantidad
+                    txtCantidad.Text = "0"
+                End If
+            Else
+                ' Si no se puede convertir a decimal, deja la cantidad vacía
+                txtCantidad.Text = ""
+            End If
+
+        Catch ex As Exception
+            ' Manejo de errores, si ocurre alguna excepción
+            MessageBox.Show("Ocurrió un error: " & ex.Message)
+        End Try
     End Sub
 
     Private Sub btnCancelaAgg_Click(sender As Object, e As EventArgs) Handles btnCancelaAgg.Click
@@ -115,19 +149,26 @@ Public Class FormVentasItems
     End Sub
 
     Private Sub txtCantidad_TextChanged(sender As Object, e As EventArgs) Handles txtCantidad.TextChanged
+        Try
+            Dim cantidad As Decimal
+            Dim precioUnitario As Decimal
+            Dim total As Decimal
 
-        Dim cantidad As Integer
-        Dim precioUnitario As Integer
-        Dim total As Integer
-
-        ' Verifica si los TextBox están vacíos
-        If Integer.TryParse(txtCantidad.Text, cantidad) AndAlso Integer.TryParse(txtPrecioUnitario.Text, precioUnitario) Then
-            total = cantidad * precioUnitario
-            txtPrecioTotal.Text = total.ToString()
-        Else
-            ' Limpia el campo si hay un error
-        End If
+            ' Verifica si ambos TextBox contienen valores numéricos válidos
+            If Decimal.TryParse(txtCantidad.Text, cantidad) AndAlso Decimal.TryParse(txtPrecioUnitario.Text, precioUnitario) Then
+                ' Calcula el total y lo muestra en txtPrecioTotal
+                total = cantidad * precioUnitario
+                txtPrecioTotal.Text = total.ToString("F2") ' Formato con 2 decimales
+            Else
+                ' Limpia el campo txtPrecioTotal si los valores no son válidos
+                txtPrecioTotal.Clear()
+            End If
+        Catch ex As Exception
+            ' Manejo de cualquier excepción que ocurra
+            MessageBox.Show("Ocurrió un error: " & ex.Message)
+        End Try
     End Sub
+
 
     Private Sub btnAgg_Click(sender As Object, e As EventArgs) Handles btnAgg.Click
         If String.IsNullOrWhiteSpace(txtPrecioUnitario.Text) OrElse String.IsNullOrWhiteSpace(txtCantidad.Text) OrElse String.IsNullOrWhiteSpace(txtPrecioTotal.Text) OrElse String.IsNullOrWhiteSpace(txtNroVenta.Text) OrElse cmbProductos.SelectedIndex = -1 Then
@@ -273,8 +314,9 @@ Public Class FormVentasItems
                             ' Verificar si se obtuvo un resultado y mostrarlo en txtPrecioUnitario
                             If precioUnitario IsNot Nothing Then
                                 txtPrecioUnitario.Text = Convert.ToDecimal(precioUnitario).ToString("F2") ' Mostrar el precio en txtPrecioUnitario
+                                txtCantidad.ReadOnly = False
                             Else
-                                txtPrecioUnitario.Clear() ' Limpiar el TextBox si no se encontró el precio
+                                ' Limpiar el TextBox si no se encontró el precio
                             End If
 
                         Catch ex As Exception
@@ -588,5 +630,65 @@ Public Class FormVentasItems
     Private Sub pnlModificarProducto_MouseUp(sender As Object, e As MouseEventArgs) Handles pnlAggVentaItems.MouseUp
         ' El mouse ya no está presionado
         mouseIsDown1 = False
+    End Sub
+
+    Private Sub txtPrecioTotalModificar_TextChanged(sender As Object, e As EventArgs) Handles txtPrecioTotalModificar.TextChanged
+        Try
+            ' Si txtPrecioTotal está vacío, limpia el valor de txtCantidad y termina la ejecución
+            If String.IsNullOrEmpty(txtPrecioTotalModificar.Text) Then
+                txtCantidad.Text = ""
+                Return
+            End If
+
+            ' Verifica que ambos campos tengan valores válidos numéricos
+            Dim precioTotal As Decimal
+            Dim precioUnitario As Decimal
+
+            ' Intenta convertir los valores de los TextBox a números decimales
+            If Decimal.TryParse(txtPrecioTotalModificar.Text, precioTotal) AndAlso Decimal.TryParse(txtPrecioUnitario.Text, precioUnitario) Then
+                ' Verifica que el precio unitario no sea cero para evitar la división por cero
+                If precioUnitario <> 0 Then
+                    ' Calcula la cantidad y la asigna al TextBox txtCantidad
+                    txtCantidad.Text = (precioTotal / precioUnitario).ToString()
+                Else
+                    ' Si el precio unitario es cero, puedes mostrar un mensaje o hacer algo
+                    txtCantidad.Text = "0"
+                End If
+            Else
+                ' Si no se puede convertir, deja la cantidad vacía o en cero
+                txtCantidad.Text = "0"
+            End If
+
+        Catch ex As Exception
+            ' Manejo de errores, si ocurre alguna excepción
+            MessageBox.Show("Ocurrió un error: " & ex.Message)
+        End Try
+    End Sub
+
+    Private Sub txtCantidadModificar_TextChanged(sender As Object, e As EventArgs) Handles txtCantidadModificar.TextChanged
+        Try
+            ' Si txtCantidadModificar está vacío, limpia el valor de txtPrecioTotalModificar y termina la ejecución
+            If String.IsNullOrEmpty(txtCantidadModificar.Text) Then
+                txtPrecioTotalModificar.Text = ""
+                Return
+            End If
+
+            ' Verifica que ambos campos tengan valores válidos numéricos
+            Dim cantidad As Decimal
+            Dim precioUnitario As Decimal
+
+            ' Intenta convertir los valores de los TextBox a números decimales
+            If Decimal.TryParse(txtCantidadModificar.Text, cantidad) AndAlso Decimal.TryParse(txtPrecioUnitarioModificar.Text, precioUnitario) Then
+                ' Calcula el precio total y lo asigna al TextBox txtPrecioTotalModificar
+                txtPrecioTotalModificar.Text = (cantidad * precioUnitario).ToString()
+            Else
+                ' Si no se puede convertir a decimal, deja el precio total vacío
+                txtPrecioTotalModificar.Text = ""
+            End If
+
+        Catch ex As Exception
+            ' Manejo de errores, si ocurre alguna excepción
+            MessageBox.Show("Ocurrió un error: " & ex.Message)
+        End Try
     End Sub
 End Class
