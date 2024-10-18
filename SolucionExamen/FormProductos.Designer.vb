@@ -48,19 +48,22 @@ Partial Class FormProductos
         Me.txtCategoriaModificar = New System.Windows.Forms.TextBox()
         Me.txtPrecioModificar = New System.Windows.Forms.TextBox()
         Me.txtProductoModificar = New System.Windows.Forms.TextBox()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Label9 = New System.Windows.Forms.Label()
         CType(Me.dgvProductos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlAggProducto.SuspendLayout()
         Me.pnlModificarProducto.SuspendLayout()
+        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'dgvProductos
         '
         Me.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvProductos.Location = New System.Drawing.Point(57, 92)
+        Me.dgvProductos.Location = New System.Drawing.Point(114, 119)
         Me.dgvProductos.Name = "dgvProductos"
         Me.dgvProductos.RowHeadersWidth = 51
         Me.dgvProductos.RowTemplate.Height = 24
-        Me.dgvProductos.Size = New System.Drawing.Size(775, 365)
+        Me.dgvProductos.Size = New System.Drawing.Size(472, 327)
         Me.dgvProductos.TabIndex = 0
         '
         'btnEliminarProducto
@@ -70,7 +73,7 @@ Partial Class FormProductos
         Me.btnEliminarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnEliminarProducto.Font = New System.Drawing.Font("Consolas", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnEliminarProducto.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.btnEliminarProducto.Location = New System.Drawing.Point(852, 290)
+        Me.btnEliminarProducto.Location = New System.Drawing.Point(657, 317)
         Me.btnEliminarProducto.Name = "btnEliminarProducto"
         Me.btnEliminarProducto.Size = New System.Drawing.Size(191, 63)
         Me.btnEliminarProducto.TabIndex = 7
@@ -84,7 +87,7 @@ Partial Class FormProductos
         Me.bntModificarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.bntModificarProducto.Font = New System.Drawing.Font("Consolas", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.bntModificarProducto.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.bntModificarProducto.Location = New System.Drawing.Point(852, 188)
+        Me.bntModificarProducto.Location = New System.Drawing.Point(657, 215)
         Me.bntModificarProducto.Name = "bntModificarProducto"
         Me.bntModificarProducto.Size = New System.Drawing.Size(191, 63)
         Me.bntModificarProducto.TabIndex = 6
@@ -97,7 +100,7 @@ Partial Class FormProductos
         Me.btnAgregarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAgregarProducto.Font = New System.Drawing.Font("Consolas", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAgregarProducto.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.btnAgregarProducto.Location = New System.Drawing.Point(852, 92)
+        Me.btnAgregarProducto.Location = New System.Drawing.Point(657, 119)
         Me.btnAgregarProducto.Name = "btnAgregarProducto"
         Me.btnAgregarProducto.Size = New System.Drawing.Size(191, 63)
         Me.btnAgregarProducto.TabIndex = 5
@@ -107,9 +110,9 @@ Partial Class FormProductos
         'txtBuscadorProducto
         '
         Me.txtBuscadorProducto.Font = New System.Drawing.Font("Consolas", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtBuscadorProducto.Location = New System.Drawing.Point(57, 36)
+        Me.txtBuscadorProducto.Location = New System.Drawing.Point(114, 61)
         Me.txtBuscadorProducto.Name = "txtBuscadorProducto"
-        Me.txtBuscadorProducto.Size = New System.Drawing.Size(583, 34)
+        Me.txtBuscadorProducto.Size = New System.Drawing.Size(472, 34)
         Me.txtBuscadorProducto.TabIndex = 8
         '
         'pnlAggProducto
@@ -123,7 +126,7 @@ Partial Class FormProductos
         Me.pnlAggProducto.Controls.Add(Me.txtCategoriaProducto)
         Me.pnlAggProducto.Controls.Add(Me.txtPrecioProducto)
         Me.pnlAggProducto.Controls.Add(Me.txtNombreProducto)
-        Me.pnlAggProducto.Location = New System.Drawing.Point(112, 92)
+        Me.pnlAggProducto.Location = New System.Drawing.Point(61, 119)
         Me.pnlAggProducto.Name = "pnlAggProducto"
         Me.pnlAggProducto.Size = New System.Drawing.Size(546, 312)
         Me.pnlAggProducto.TabIndex = 9
@@ -227,7 +230,7 @@ Partial Class FormProductos
         Me.pnlModificarProducto.Controls.Add(Me.txtCategoriaModificar)
         Me.pnlModificarProducto.Controls.Add(Me.txtPrecioModificar)
         Me.pnlModificarProducto.Controls.Add(Me.txtProductoModificar)
-        Me.pnlModificarProducto.Location = New System.Drawing.Point(475, 89)
+        Me.pnlModificarProducto.Location = New System.Drawing.Point(185, 62)
         Me.pnlModificarProducto.Name = "pnlModificarProducto"
         Me.pnlModificarProducto.Size = New System.Drawing.Size(546, 312)
         Me.pnlModificarProducto.TabIndex = 10
@@ -320,13 +323,33 @@ Partial Class FormProductos
         Me.txtProductoModificar.Size = New System.Drawing.Size(219, 22)
         Me.txtProductoModificar.TabIndex = 0
         '
+        'Panel1
+        '
+        Me.Panel1.Controls.Add(Me.Label9)
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel1.Location = New System.Drawing.Point(0, 0)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(948, 56)
+        Me.Panel1.TabIndex = 11
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Consolas", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(431, 17)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(129, 27)
+        Me.Label9.TabIndex = 0
+        Me.Label9.Text = "PRODUCTOS"
+        '
         'FormProductos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1110, 491)
-        Me.Controls.Add(Me.pnlModificarProducto)
+        Me.ClientSize = New System.Drawing.Size(948, 491)
         Me.Controls.Add(Me.pnlAggProducto)
+        Me.Controls.Add(Me.pnlModificarProducto)
+        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.txtBuscadorProducto)
         Me.Controls.Add(Me.btnEliminarProducto)
         Me.Controls.Add(Me.bntModificarProducto)
@@ -342,6 +365,8 @@ Partial Class FormProductos
         Me.pnlAggProducto.PerformLayout()
         Me.pnlModificarProducto.ResumeLayout(False)
         Me.pnlModificarProducto.PerformLayout()
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -372,4 +397,6 @@ Partial Class FormProductos
     Friend WithEvents txtCategoriaModificar As TextBox
     Friend WithEvents txtPrecioModificar As TextBox
     Friend WithEvents txtProductoModificar As TextBox
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents Label9 As Label
 End Class

@@ -48,19 +48,22 @@ Partial Class FormVentas
         Me.Button1 = New System.Windows.Forms.Button()
         Me.btnModificarVenta = New System.Windows.Forms.Button()
         Me.txtTotalModificar = New System.Windows.Forms.TextBox()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Label9 = New System.Windows.Forms.Label()
         CType(Me.dgvVentas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlAggVenta.SuspendLayout()
         Me.pnlModificarVenta.SuspendLayout()
+        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'dgvVentas
         '
         Me.dgvVentas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvVentas.Location = New System.Drawing.Point(44, 95)
+        Me.dgvVentas.Location = New System.Drawing.Point(107, 127)
         Me.dgvVentas.Name = "dgvVentas"
         Me.dgvVentas.RowHeadersWidth = 51
         Me.dgvVentas.RowTemplate.Height = 24
-        Me.dgvVentas.Size = New System.Drawing.Size(775, 326)
+        Me.dgvVentas.Size = New System.Drawing.Size(503, 295)
         Me.dgvVentas.TabIndex = 0
         '
         'btnEliminarVenta
@@ -70,7 +73,7 @@ Partial Class FormVentas
         Me.btnEliminarVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnEliminarVenta.Font = New System.Drawing.Font("Consolas", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnEliminarVenta.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.btnEliminarVenta.Location = New System.Drawing.Point(900, 293)
+        Me.btnEliminarVenta.Location = New System.Drawing.Point(713, 325)
         Me.btnEliminarVenta.Name = "btnEliminarVenta"
         Me.btnEliminarVenta.Size = New System.Drawing.Size(191, 63)
         Me.btnEliminarVenta.TabIndex = 7
@@ -84,7 +87,7 @@ Partial Class FormVentas
         Me.bntModificarVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.bntModificarVenta.Font = New System.Drawing.Font("Consolas", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.bntModificarVenta.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.bntModificarVenta.Location = New System.Drawing.Point(900, 191)
+        Me.bntModificarVenta.Location = New System.Drawing.Point(713, 223)
         Me.bntModificarVenta.Name = "bntModificarVenta"
         Me.bntModificarVenta.Size = New System.Drawing.Size(191, 63)
         Me.bntModificarVenta.TabIndex = 6
@@ -97,7 +100,7 @@ Partial Class FormVentas
         Me.btnAgregarVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAgregarVenta.Font = New System.Drawing.Font("Consolas", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAgregarVenta.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.btnAgregarVenta.Location = New System.Drawing.Point(900, 95)
+        Me.btnAgregarVenta.Location = New System.Drawing.Point(713, 127)
         Me.btnAgregarVenta.Name = "btnAgregarVenta"
         Me.btnAgregarVenta.Size = New System.Drawing.Size(191, 63)
         Me.btnAgregarVenta.TabIndex = 5
@@ -107,9 +110,9 @@ Partial Class FormVentas
         'txtBuscadorVentas
         '
         Me.txtBuscadorVentas.Font = New System.Drawing.Font("Consolas", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtBuscadorVentas.Location = New System.Drawing.Point(44, 39)
+        Me.txtBuscadorVentas.Location = New System.Drawing.Point(107, 79)
         Me.txtBuscadorVentas.Name = "txtBuscadorVentas"
-        Me.txtBuscadorVentas.Size = New System.Drawing.Size(583, 34)
+        Me.txtBuscadorVentas.Size = New System.Drawing.Size(503, 34)
         Me.txtBuscadorVentas.TabIndex = 8
         '
         'pnlAggVenta
@@ -123,7 +126,7 @@ Partial Class FormVentas
         Me.pnlAggVenta.Controls.Add(Me.btnCancelaAgg)
         Me.pnlAggVenta.Controls.Add(Me.btnAggVenta)
         Me.pnlAggVenta.Controls.Add(Me.txtTotalVenta)
-        Me.pnlAggVenta.Location = New System.Drawing.Point(59, 79)
+        Me.pnlAggVenta.Location = New System.Drawing.Point(32, 195)
         Me.pnlAggVenta.Name = "pnlAggVenta"
         Me.pnlAggVenta.Size = New System.Drawing.Size(546, 312)
         Me.pnlAggVenta.TabIndex = 10
@@ -326,13 +329,33 @@ Partial Class FormVentas
         Me.txtTotalModificar.Size = New System.Drawing.Size(219, 22)
         Me.txtTotalModificar.TabIndex = 2
         '
+        'Panel1
+        '
+        Me.Panel1.Controls.Add(Me.Label9)
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel1.Location = New System.Drawing.Point(0, 0)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(987, 56)
+        Me.Panel1.TabIndex = 12
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Consolas", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(431, 17)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(90, 27)
+        Me.Label9.TabIndex = 0
+        Me.Label9.Text = "VENTAS"
+        '
         'FormVentas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1143, 487)
-        Me.Controls.Add(Me.pnlModificarVenta)
+        Me.ClientSize = New System.Drawing.Size(987, 487)
         Me.Controls.Add(Me.pnlAggVenta)
+        Me.Controls.Add(Me.pnlModificarVenta)
+        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.txtBuscadorVentas)
         Me.Controls.Add(Me.btnEliminarVenta)
         Me.Controls.Add(Me.bntModificarVenta)
@@ -348,6 +371,8 @@ Partial Class FormVentas
         Me.pnlAggVenta.PerformLayout()
         Me.pnlModificarVenta.ResumeLayout(False)
         Me.pnlModificarVenta.PerformLayout()
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -378,4 +403,6 @@ Partial Class FormVentas
     Friend WithEvents dtpFechaVenta As DateTimePicker
     Friend WithEvents dtpFechaVentaModificar As DateTimePicker
     Friend WithEvents cmbClienteModificar As ComboBox
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents Label9 As Label
 End Class

@@ -57,8 +57,8 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=VICTORPC666\SQLEXPRESS;Initial Catalog=pruebademo;Integrated Security"& _ 
-            "=True")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Server = localhost \ SQLEXPRESS;Database=pruebademo;Integrated Security=True"& _ 
+            ";MultipleActiveResultSets=True;Timeout=120;")>  _
         Public ReadOnly Property pruebademoConnectionString() As String
             Get
                 Return CType(Me("pruebademoConnectionString"),String)
@@ -68,11 +68,22 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=VICTORPC666\SQLEXPRESS;Initial Catalog=master;Integrated Security=Tru"& _ 
-            "e")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Server = localhost \ SQLEXPRESS;Database=pruebademo;Integrated Security=True"& _ 
+            ";MultipleActiveResultSets=True;Timeout=120;")>  _
         Public ReadOnly Property masterConnectionString() As String
             Get
                 Return CType(Me("masterConnectionString"),String)
+            End Get
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=VICTORPC666\SQLEXPRESS;Initial Catalog=pruebademo;Integrated Security"& _ 
+            "=True")>  _
+        Public ReadOnly Property pruebademoConnectionString1() As String
+            Get
+                Return CType(Me("pruebademoConnectionString1"),String)
             End Get
         End Property
     End Class

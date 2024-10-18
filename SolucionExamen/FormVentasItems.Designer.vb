@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FormVentasItems
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class FormVentasItems
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormVentasItems))
         Me.dgvVentasItems = New System.Windows.Forms.DataGridView()
@@ -60,19 +60,22 @@ Partial Class FormVentasItems
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.btnModificarVenta = New System.Windows.Forms.Button()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Label15 = New System.Windows.Forms.Label()
         CType(Me.dgvVentasItems, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlAggVentaItems.SuspendLayout()
         Me.pnlModificarVentaItem.SuspendLayout()
+        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'dgvVentasItems
         '
         Me.dgvVentasItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvVentasItems.Location = New System.Drawing.Point(12, 97)
+        Me.dgvVentasItems.Location = New System.Drawing.Point(102, 154)
         Me.dgvVentasItems.Name = "dgvVentasItems"
         Me.dgvVentasItems.RowHeadersWidth = 51
         Me.dgvVentasItems.RowTemplate.Height = 24
-        Me.dgvVentasItems.Size = New System.Drawing.Size(866, 362)
+        Me.dgvVentasItems.Size = New System.Drawing.Size(760, 362)
         Me.dgvVentasItems.TabIndex = 0
         '
         'btnEliminarCliente
@@ -82,7 +85,7 @@ Partial Class FormVentasItems
         Me.btnEliminarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnEliminarCliente.Font = New System.Drawing.Font("Consolas", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnEliminarCliente.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.btnEliminarCliente.Location = New System.Drawing.Point(918, 295)
+        Me.btnEliminarCliente.Location = New System.Drawing.Point(918, 352)
         Me.btnEliminarCliente.Name = "btnEliminarCliente"
         Me.btnEliminarCliente.Size = New System.Drawing.Size(191, 63)
         Me.btnEliminarCliente.TabIndex = 10
@@ -96,7 +99,7 @@ Partial Class FormVentasItems
         Me.bntModificarVentasItems.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.bntModificarVentasItems.Font = New System.Drawing.Font("Consolas", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.bntModificarVentasItems.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.bntModificarVentasItems.Location = New System.Drawing.Point(918, 193)
+        Me.bntModificarVentasItems.Location = New System.Drawing.Point(918, 250)
         Me.bntModificarVentasItems.Name = "bntModificarVentasItems"
         Me.bntModificarVentasItems.Size = New System.Drawing.Size(191, 63)
         Me.bntModificarVentasItems.TabIndex = 9
@@ -109,7 +112,7 @@ Partial Class FormVentasItems
         Me.btnAgregarVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAgregarVenta.Font = New System.Drawing.Font("Consolas", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAgregarVenta.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.btnAgregarVenta.Location = New System.Drawing.Point(918, 97)
+        Me.btnAgregarVenta.Location = New System.Drawing.Point(918, 154)
         Me.btnAgregarVenta.Name = "btnAgregarVenta"
         Me.btnAgregarVenta.Size = New System.Drawing.Size(191, 63)
         Me.btnAgregarVenta.TabIndex = 8
@@ -119,9 +122,9 @@ Partial Class FormVentasItems
         'txtBuscadorVentasItems
         '
         Me.txtBuscadorVentasItems.Font = New System.Drawing.Font("Consolas", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtBuscadorVentasItems.Location = New System.Drawing.Point(12, 37)
+        Me.txtBuscadorVentasItems.Location = New System.Drawing.Point(102, 86)
         Me.txtBuscadorVentasItems.Name = "txtBuscadorVentasItems"
-        Me.txtBuscadorVentasItems.Size = New System.Drawing.Size(866, 34)
+        Me.txtBuscadorVentasItems.Size = New System.Drawing.Size(760, 34)
         Me.txtBuscadorVentasItems.TabIndex = 11
         '
         'pnlAggVentaItems
@@ -141,7 +144,7 @@ Partial Class FormVentasItems
         Me.pnlAggVentaItems.Controls.Add(Me.txtPrecioTotal)
         Me.pnlAggVentaItems.Controls.Add(Me.txtCantidad)
         Me.pnlAggVentaItems.Controls.Add(Me.txtPrecioUnitario)
-        Me.pnlAggVentaItems.Location = New System.Drawing.Point(102, 12)
+        Me.pnlAggVentaItems.Location = New System.Drawing.Point(69, 43)
         Me.pnlAggVentaItems.Name = "pnlAggVentaItems"
         Me.pnlAggVentaItems.Size = New System.Drawing.Size(576, 435)
         Me.pnlAggVentaItems.TabIndex = 12
@@ -474,11 +477,31 @@ Partial Class FormVentasItems
         Me.btnModificarVenta.Text = "Agregar"
         Me.btnModificarVenta.UseVisualStyleBackColor = False
         '
+        'Panel1
+        '
+        Me.Panel1.Controls.Add(Me.Label15)
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel1.Location = New System.Drawing.Point(0, 0)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(1233, 56)
+        Me.Panel1.TabIndex = 14
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Font = New System.Drawing.Font("Consolas", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label15.Location = New System.Drawing.Point(556, 17)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(207, 27)
+        Me.Label15.TabIndex = 0
+        Me.Label15.Text = "VENTAS POR ITEM"
+        '
         'FormVentasItems
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1233, 596)
+        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.pnlModificarVentaItem)
         Me.Controls.Add(Me.pnlAggVentaItems)
         Me.Controls.Add(Me.txtBuscadorVentasItems)
@@ -496,6 +519,8 @@ Partial Class FormVentasItems
         Me.pnlAggVentaItems.PerformLayout()
         Me.pnlModificarVentaItem.ResumeLayout(False)
         Me.pnlModificarVentaItem.PerformLayout()
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -538,4 +563,6 @@ Partial Class FormVentasItems
     Friend WithEvents txtPrecioTotalModificar As TextBox
     Friend WithEvents txtCantidadModificar As TextBox
     Friend WithEvents txtPrecioUnitarioModificar As TextBox
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents Label15 As Label
 End Class

@@ -16,7 +16,7 @@ Public Class FormVentasItems
     Private Sub FormVentasItems_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' Cargar los ítems del DataGridView o lo que necesites cargar inicialmente
         CargarVentasItems("")
-        dgvVentasItems.Columns("ID").Visible = False
+
 
         ' Llamar al método para cargar los productos en el ComboBox
         CargarProductos()
@@ -60,11 +60,15 @@ Public Class FormVentasItems
         CargarVentasItems(txtBuscadorVentasItems.Text)
     End Sub
     Private Sub CargarVentasItems(Optional ByVal busqueda As String = "")
-        ' Aquí debes establecer la conexión con la base de datos
+        ' Conexión a la base de datos
         Dim connectionString As String = "Server = localhost \ SQLEXPRESS;Database=pruebademo;Integrated Security=True;MultipleActiveResultSets=True;Timeout=120;"
 
-        ' Ajustamos la consulta SQL para buscar por IDVenta, IDProducto o PrecioUnitario
-        Dim query As String = "SELECT * FROM VentasItems WHERE (IDVenta LIKE @busqueda OR IDProducto LIKE @busqueda OR CAST(PrecioUnitario AS NVARCHAR) LIKE @busqueda OR CAST(Cantidad AS NVARCHAR) LIKE @busqueda OR CAST(PrecioTotal AS NVARCHAR) LIKE @busqueda)"
+        ' Ajustamos la consulta SQL para buscar por IDVenta, Nombre del Producto o PrecioUnitario
+        Dim query As String = "
+    SELECT vi.IDVenta, p.Nombre AS NombreProducto, vi.PrecioUnitario, vi.Cantidad, vi.PrecioTotal 
+    FROM VentasItems vi 
+    INNER JOIN productos p ON vi.IDProducto = p.ID 
+    WHERE (vi.IDVenta LIKE @busqueda OR p.Nombre LIKE @busqueda OR CAST(vi.PrecioUnitario AS NVARCHAR) LIKE @busqueda OR CAST(vi.Cantidad AS NVARCHAR) LIKE @busqueda OR CAST(vi.PrecioTotal AS NVARCHAR) LIKE @busqueda)"
 
         Using connection As New SqlConnection(connectionString)
             Using command As New SqlCommand(query, connection)
@@ -80,9 +84,13 @@ Public Class FormVentasItems
 
                 ' Asignar los resultados al DataGridView
                 dgvVentasItems.DataSource = dt
+
+                ' Si quieres ocultar la columna IDProducto en caso de que la quieras
+
             End Using
         End Using
     End Sub
+
 
     Private Sub btnAgregarVenta_Click(sender As Object, e As EventArgs) Handles btnAgregarVenta.Click
         pnlAggVentaItems.Visible = True
@@ -353,7 +361,8 @@ Public Class FormVentasItems
 
             txtPrecioTotalModificar.Text = filaSeleccionada.Cells("PrecioTotal").Value.ToString()
             ' Asignar el producto seleccionado al ComboBox
-            Dim idProducto As Integer = Convert.ToInt32(filaSeleccionada.Cells("IDProducto").Value)
+            Dim idProducto As String = filaSeleccionada.Cells("NombreProducto").Value.ToString()
+
             cmbProductoModificar.SelectedValue = idProducto
 
 
@@ -691,5 +700,9 @@ Public Class FormVentasItems
             ' Manejo de errores, si ocurre alguna excepción
             MessageBox.Show("Ocurrió un error: " & ex.Message)
         End Try
+    End Sub
+
+    Private Sub btnReportesItems_Click(sender As Object, e As EventArgs)
+
     End Sub
 End Class

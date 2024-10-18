@@ -48,27 +48,30 @@ Partial Class FormClientes
         Me.txtClienteModificar = New System.Windows.Forms.TextBox()
         Me.bntModificarCliente = New System.Windows.Forms.Button()
         Me.btnAgregarCliente = New System.Windows.Forms.Button()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Label9 = New System.Windows.Forms.Label()
         CType(Me.dgvClientes, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlAggCliente.SuspendLayout()
         Me.pnlModificarCliente.SuspendLayout()
+        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'dgvClientes
         '
         Me.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvClientes.Location = New System.Drawing.Point(13, 77)
+        Me.dgvClientes.Location = New System.Drawing.Point(93, 133)
         Me.dgvClientes.Name = "dgvClientes"
         Me.dgvClientes.RowHeadersWidth = 51
         Me.dgvClientes.RowTemplate.Height = 24
-        Me.dgvClientes.Size = New System.Drawing.Size(775, 361)
+        Me.dgvClientes.Size = New System.Drawing.Size(497, 289)
         Me.dgvClientes.TabIndex = 0
         '
         'txtBuscadorClientes
         '
         Me.txtBuscadorClientes.Font = New System.Drawing.Font("Consolas", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtBuscadorClientes.Location = New System.Drawing.Point(13, 30)
+        Me.txtBuscadorClientes.Location = New System.Drawing.Point(93, 78)
         Me.txtBuscadorClientes.Name = "txtBuscadorClientes"
-        Me.txtBuscadorClientes.Size = New System.Drawing.Size(583, 34)
+        Me.txtBuscadorClientes.Size = New System.Drawing.Size(497, 34)
         Me.txtBuscadorClientes.TabIndex = 1
         '
         'btnEliminarCliente
@@ -78,7 +81,7 @@ Partial Class FormClientes
         Me.btnEliminarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnEliminarCliente.Font = New System.Drawing.Font("Consolas", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnEliminarCliente.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.btnEliminarCliente.Location = New System.Drawing.Point(836, 275)
+        Me.btnEliminarCliente.Location = New System.Drawing.Point(678, 331)
         Me.btnEliminarCliente.Name = "btnEliminarCliente"
         Me.btnEliminarCliente.Size = New System.Drawing.Size(191, 63)
         Me.btnEliminarCliente.TabIndex = 4
@@ -96,7 +99,7 @@ Partial Class FormClientes
         Me.pnlAggCliente.Controls.Add(Me.txtTelefonoCliente)
         Me.pnlAggCliente.Controls.Add(Me.txtCorreoCliente)
         Me.pnlAggCliente.Controls.Add(Me.txtNombreCliente)
-        Me.pnlAggCliente.Location = New System.Drawing.Point(150, 47)
+        Me.pnlAggCliente.Location = New System.Drawing.Point(157, 62)
         Me.pnlAggCliente.Name = "pnlAggCliente"
         Me.pnlAggCliente.Size = New System.Drawing.Size(546, 312)
         Me.pnlAggCliente.TabIndex = 5
@@ -200,7 +203,7 @@ Partial Class FormClientes
         Me.pnlModificarCliente.Controls.Add(Me.txtTelefonoModificar)
         Me.pnlModificarCliente.Controls.Add(Me.txtCorreoModificar)
         Me.pnlModificarCliente.Controls.Add(Me.txtClienteModificar)
-        Me.pnlModificarCliente.Location = New System.Drawing.Point(36, 130)
+        Me.pnlModificarCliente.Location = New System.Drawing.Point(-24, 130)
         Me.pnlModificarCliente.Name = "pnlModificarCliente"
         Me.pnlModificarCliente.Size = New System.Drawing.Size(546, 312)
         Me.pnlModificarCliente.TabIndex = 6
@@ -300,7 +303,7 @@ Partial Class FormClientes
         Me.bntModificarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.bntModificarCliente.Font = New System.Drawing.Font("Consolas", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.bntModificarCliente.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.bntModificarCliente.Location = New System.Drawing.Point(836, 173)
+        Me.bntModificarCliente.Location = New System.Drawing.Point(678, 229)
         Me.bntModificarCliente.Name = "bntModificarCliente"
         Me.bntModificarCliente.Size = New System.Drawing.Size(191, 63)
         Me.bntModificarCliente.TabIndex = 3
@@ -313,20 +316,40 @@ Partial Class FormClientes
         Me.btnAgregarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAgregarCliente.Font = New System.Drawing.Font("Consolas", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAgregarCliente.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.btnAgregarCliente.Location = New System.Drawing.Point(836, 77)
+        Me.btnAgregarCliente.Location = New System.Drawing.Point(678, 133)
         Me.btnAgregarCliente.Name = "btnAgregarCliente"
         Me.btnAgregarCliente.Size = New System.Drawing.Size(191, 63)
         Me.btnAgregarCliente.TabIndex = 2
         Me.btnAgregarCliente.Text = "Agregar"
         Me.btnAgregarCliente.UseVisualStyleBackColor = False
         '
+        'Panel1
+        '
+        Me.Panel1.Controls.Add(Me.Label9)
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel1.Location = New System.Drawing.Point(0, 0)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(942, 56)
+        Me.Panel1.TabIndex = 7
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Consolas", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(431, 17)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(116, 27)
+        Me.Label9.TabIndex = 0
+        Me.Label9.Text = "CLIENTES"
+        '
         'FormClientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1055, 454)
+        Me.ClientSize = New System.Drawing.Size(942, 454)
         Me.Controls.Add(Me.pnlModificarCliente)
         Me.Controls.Add(Me.pnlAggCliente)
+        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.btnEliminarCliente)
         Me.Controls.Add(Me.bntModificarCliente)
         Me.Controls.Add(Me.btnAgregarCliente)
@@ -342,6 +365,8 @@ Partial Class FormClientes
         Me.pnlAggCliente.PerformLayout()
         Me.pnlModificarCliente.ResumeLayout(False)
         Me.pnlModificarCliente.PerformLayout()
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -372,4 +397,6 @@ Partial Class FormClientes
     Friend WithEvents txtTelefonoModificar As TextBox
     Friend WithEvents txtCorreoModificar As TextBox
     Friend WithEvents txtClienteModificar As TextBox
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents Label9 As Label
 End Class

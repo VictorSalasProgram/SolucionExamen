@@ -10,6 +10,7 @@ Public Class FormClientes
     Private connectionString As String = "Server = localhost \ SQLEXPRESS;Database=pruebademo;Integrated Security=True;MultipleActiveResultSets=True;Timeout=120;"
     ' Suponiendo que ya tienes un DataGridView llamado dgvClientes en tu formulario
     Private Sub FormClientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
         ' Cargar todos los clientes al inicio
         CargarClientes("")
         dgvClientes.Columns("ID").Visible = False
