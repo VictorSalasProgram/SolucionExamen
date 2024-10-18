@@ -57,8 +57,7 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Server = localhost \ SQLEXPRESS;Database=pruebademo;Integrated Security=True;MultipleActiveResultSets=True;Timeout=120;" &
-            ";Database=pruebademo;")>
+         Global.System.Configuration.DefaultSettingValueAttribute("Server=localhost\SQLEXPRESS;Database=pruebademo;Integrated Security=True;MultipleActiveResultSets=True;Timeout=120;")>
         Public ReadOnly Property pruebademoConnectionString() As String
             Get
                 Return CType(Me("pruebademoConnectionString"), String)
@@ -68,8 +67,7 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Server = localhost \ SQLEXPRESS;Database=pruebademo;Integrated Security=True;MultipleActiveResultSets=True;Timeout=120;" &
-            ";Database=pruebademo;")>
+         Global.System.Configuration.DefaultSettingValueAttribute("Server=localhost\SQLEXPRESS;Database=pruebademo;Integrated Security=True;MultipleActiveResultSets=True;Timeout=120;")>
         Public ReadOnly Property masterConnectionString() As String
             Get
                 Return CType(Me("masterConnectionString"), String)
@@ -79,8 +77,7 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),
-         Global.System.Configuration.DefaultSettingValueAttribute("Server = localhost \ SQLEXPRESS;Database=pruebademo;Integrated Security=True;MultipleActiveResultSets=True;Timeout=120;" &
-            "base=pruebademo;")>
+         Global.System.Configuration.DefaultSettingValueAttribute("Server=localhost\SQLEXPRESS;Database=pruebademo;Integrated Security=True;MultipleActiveResultSets=True;Timeout=120;")>
         Public ReadOnly Property pruebademoConnectionString1() As String
             Get
                 Return CType(Me("pruebademoConnectionString1"), String)
@@ -104,3 +101,4 @@ Namespace My
         End Property
     End Module
 End Namespace
+
