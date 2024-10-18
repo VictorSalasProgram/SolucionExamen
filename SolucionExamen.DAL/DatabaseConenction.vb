@@ -1,6 +1,5 @@
 ﻿Imports System.Data.SqlClient
 
-
 Public Class DatabaseConnection
 
     Private connectionString As String = "Server = localhost \ SQLEXPRESS;Database=pruebademo;Integrated Security=True;MultipleActiveResultSets=True;Timeout=120;"

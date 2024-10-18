@@ -1,4 +1,5 @@
-﻿Imports System.Data.SqlClient
+﻿Imports System.Configuration
+Imports System.Data.SqlClient
 Imports SolucionExamen.BLL
 Imports SolucionExamen.Entidades
 
@@ -61,7 +62,8 @@ Public Class FormVentasItems
     End Sub
     Private Sub CargarVentasItems(Optional ByVal busqueda As String = "")
         ' Conexión a la base de datos
-        Dim connectionString As String = "Server = localhost \ SQLEXPRESS;Database=pruebademo;Integrated Security=True;MultipleActiveResultSets=True;Timeout=120;"
+        Dim connectionString As String = ConfigurationManager.ConnectionStrings("SolucionExamen.My.MySettings.pruebademoConnectionString").ConnectionString
+
 
         ' Ajustamos la consulta SQL para buscar por IDVenta, Nombre del Producto o PrecioUnitario
         Dim query As String = "
@@ -186,7 +188,8 @@ Public Class FormVentasItems
         End If
 
         ' Establecer la cadena de conexión a la base de datos
-        Dim connectionString As String = "Server = localhost \ SQLEXPRESS;Database=pruebademo;Integrated Security=True;MultipleActiveResultSets=True;Timeout=120;"
+        Dim connectionString As String = ConfigurationManager.ConnectionStrings("SolucionExamen.My.MySettings.pruebademoConnectionString").ConnectionString
+
 
         ' Crear la consulta SQL para insertar un nuevo cliente
         Dim query As String = "INSERT INTO Ventasitems (IDVenta, IDProducto, Preciounitario, Cantidad, Preciototal) VALUES (@IDVenta, @IDProducto, @PrecioUnitario, @Cantidad, @PrecioTotal)"
@@ -231,7 +234,8 @@ Public Class FormVentasItems
         Dim idVenta As Integer
         If Integer.TryParse(txtNroVenta.Text, idVenta) Then
             ' Establecer la cadena de conexión a la base de datos
-            Dim connectionString As String = "Server = localhost \ SQLEXPRESS;Database=pruebademo;Integrated Security=True;MultipleActiveResultSets=True;Timeout=120;"
+            Dim connectionString As String = ConfigurationManager.ConnectionStrings("SolucionExamen.My.MySettings.pruebademoConnectionString").ConnectionString
+
 
             ' Crear la consulta SQL para obtener el IDCliente y el Total asociados al IDVenta
             Dim queryVenta As String = "SELECT IDCliente, Total FROM ventas WHERE ID = @IDVenta"
@@ -301,7 +305,8 @@ Public Class FormVentasItems
         ' Solo actualizar txtPrecioUnitario si hay un producto seleccionado
         If cmbProductos.SelectedIndex <> -1 Then
             ' Establecer la cadena de conexión a la base de datos
-            Dim connectionString As String = "Server = localhost \ SQLEXPRESS;Database=pruebademo;Integrated Security=True;MultipleActiveResultSets=True;Timeout=120;"
+            Dim connectionString As String = ConfigurationManager.ConnectionStrings("SolucionExamen.My.MySettings.pruebademoConnectionString").ConnectionString
+
 
             ' Obtener el ID del producto seleccionado
             Dim idProducto As Integer
@@ -412,7 +417,8 @@ Public Class FormVentasItems
         Dim idVenta As Integer
         If Integer.TryParse(txtNroVentaModificar.Text, idVenta) Then
             ' Establecer la cadena de conexión a la base de datos
-            Dim connectionString As String = "Server = localhost \ SQLEXPRESS;Database=pruebademo;Integrated Security=True;MultipleActiveResultSets=True;Timeout=120;"
+            Dim connectionString As String = ConfigurationManager.ConnectionStrings("SolucionExamen.My.MySettings.pruebademoConnectionString").ConnectionString
+
 
             ' Crear la consulta SQL para obtener el IDCliente y el Total asociados al IDVenta
             Dim queryVenta As String = "SELECT IDCliente, Total FROM ventas WHERE ID = @IDVenta"
@@ -490,7 +496,8 @@ Public Class FormVentasItems
         End If
 
         ' Establecer la cadena de conexión a la base de datos
-        Dim connectionString As String = "Server = localhost \ SQLEXPRESS;Database=pruebademo;Integrated Security=True;MultipleActiveResultSets=True;Timeout=120;"
+        Dim connectionString As String = ConfigurationManager.ConnectionStrings("SolucionExamen.My.MySettings.pruebademoConnectionString").ConnectionString
+
 
         ' Crear la consulta SQL para actualizar la venta
         Dim query As String = "UPDATE VentasItems SET IDProducto = @IDProducto, PrecioUnitario = @PrecioUnitario, Cantidad = @Cantidad, PrecioTotal = @PrecioTotal WHERE IDVenta = @IDVenta"
@@ -539,7 +546,8 @@ Public Class FormVentasItems
 
             If result = DialogResult.Yes Then
                 ' Conectar a la base de datos
-                Dim connectionString As String = "Server = localhost \ SQLEXPRESS;Database=pruebademo;Integrated Security=True;MultipleActiveResultSets=True;Timeout=120;"
+                Dim connectionString As String = ConfigurationManager.ConnectionStrings("SolucionExamen.My.MySettings.pruebademoConnectionString").ConnectionString
+
                 Using conn As New SqlConnection(connectionString)
                     Try
                         conn.Open()

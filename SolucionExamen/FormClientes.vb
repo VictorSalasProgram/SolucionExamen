@@ -1,5 +1,6 @@
 ﻿
 
+Imports System.Configuration
 Imports System.Data.SqlClient
 
 
@@ -7,7 +8,7 @@ Public Class FormClientes
 
 
 
-    Private connectionString As String = "Server = localhost \ SQLEXPRESS;Database=pruebademo;Integrated Security=True;MultipleActiveResultSets=True;Timeout=120;"
+    Private connectionString As String = "Server = localhost;Uid=sa;Pwd=sasa;MultipleActiveResultSets=True;Timeout=120;Database=pruebademo;"
     ' Suponiendo que ya tienes un DataGridView llamado dgvClientes en tu formulario
     Private Sub FormClientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -23,7 +24,7 @@ Public Class FormClientes
 
     Private Sub CargarClientes(Optional ByVal busqueda As String = "")
         ' Aquí debes establecer la conexión con la base de datos
-        Dim connectionString As String = "Server = localhost \ SQLEXPRESS;Database=pruebademo;Integrated Security=True;MultipleActiveResultSets=True;Timeout=120;"
+        Dim connectionString As String = ConfigurationManager.ConnectionStrings("SolucionExamen.My.MySettings.pruebademoConnectionString").ConnectionString
 
         ' Ajustamos la consulta SQL para buscar en todos los campos
         Dim query As String = "SELECT * FROM Clientes WHERE (Cliente LIKE @busqueda OR Correo LIKE @busqueda OR Telefono LIKE @busqueda)"
@@ -65,7 +66,7 @@ Public Class FormClientes
         End If
 
         ' Establecer la cadena de conexión a la base de datos
-        Dim connectionString As String = "Server = localhost \ SQLEXPRESS;Database=pruebademo;Integrated Security=True;MultipleActiveResultSets=True;Timeout=120;"
+        Dim connectionString As String = ConfigurationManager.ConnectionStrings("SolucionExamen.My.MySettings.pruebademoConnectionString").ConnectionString
 
         ' Crear la consulta SQL para insertar un nuevo cliente
         Dim query As String = "INSERT INTO Clientes (Cliente, Correo, Telefono) VALUES (@Cliente, @Correo, @Telefono)"
@@ -123,7 +124,7 @@ Public Class FormClientes
 
             If result = DialogResult.Yes Then
                 ' Conectar a la base de datos
-                Dim connectionString As String = "Server = localhost \ SQLEXPRESS;Database=pruebademo;Integrated Security=True;MultipleActiveResultSets=True;Timeout=120;"
+                Dim connectionString As String = ConfigurationManager.ConnectionStrings("SolucionExamen.My.MySettings.pruebademoConnectionString").ConnectionString
                 Using conn As New SqlConnection(connectionString)
                     Try
                         conn.Open()
@@ -194,7 +195,7 @@ Public Class FormClientes
         Dim clienteId As Integer = Convert.ToInt32(dgvClientes.SelectedRows(0).Cells(0).Value)
 
         ' Aquí debes establecer la conexión con la base de datos
-        Dim connectionString As String = "Server = localhost \ SQLEXPRESS;Database=pruebademo;Integrated Security=True;MultipleActiveResultSets=True;Timeout=120;"
+        Dim connectionString As String = ConfigurationManager.ConnectionStrings("SolucionExamen.My.MySettings.pruebademoConnectionString").ConnectionString
 
         ' Consulta SQL para actualizar el cliente
         Dim query As String = "UPDATE Clientes SET Cliente = @cliente, Correo = @correo, Telefono = @telefono WHERE ID = @id"
@@ -299,8 +300,11 @@ Public Class FormClientes
         mouseIsDown1 = False
     End Sub
 
+    Protected Overrides Sub Finalize()
+        MyBase.Finalize()
+    End Sub
 
+    Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
 
-
-
+    End Sub
 End Class

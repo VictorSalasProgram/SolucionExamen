@@ -1,8 +1,9 @@
-﻿Imports System.Data.SqlClient
+﻿Imports System.Configuration
+Imports System.Data.SqlClient
 Imports SolucionExamen.BLL
 
 Public Class FormProductos
-    Private connectionString As String = "Server = localhost \ SQLEXPRESS;Database=pruebademo;Integrated Security=True;MultipleActiveResultSets=True;Timeout=120;"
+    Private connectionString As String = "Server = localhost;Uid=sa;Pwd=sasa;MultipleActiveResultSets=True;Timeout=120;Database=pruebademo;"
     Private ProductoBL As New ProductoBL()
     Private Sub FormProductos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
@@ -27,7 +28,8 @@ Public Class FormProductos
     End Sub
     Private Sub CargarProductos(Optional ByVal busqueda As String = "")
         ' Aquí debes establecer la conexión con la base de datos
-        Dim connectionString As String = "Server = localhost \ SQLEXPRESS;Database=pruebademo;Integrated Security=True;MultipleActiveResultSets=True;Timeout=120;"
+        Dim connectionString As String = ConfigurationManager.ConnectionStrings("SolucionExamen.My.MySettings.pruebademoConnectionString").ConnectionString
+
 
         ' Ajustamos la consulta SQL para buscar por nombre, precio o categoría
         Dim query As String = "SELECT * FROM Productos WHERE (Nombre LIKE @busqueda OR Categoria LIKE @busqueda OR CAST(Precio AS NVARCHAR) LIKE @busqueda)"
@@ -59,7 +61,8 @@ Public Class FormProductos
         End If
 
         ' Establecer la cadena de conexión a la base de datos
-        Dim connectionString As String = "Server = localhost \ SQLEXPRESS;Database=pruebademo;Integrated Security=True;MultipleActiveResultSets=True;Timeout=120;"
+        Dim connectionString As String = ConfigurationManager.ConnectionStrings("SolucionExamen.My.MySettings.pruebademoConnectionString").ConnectionString
+
 
         ' Crear la consulta SQL para insertar un nuevo cliente
         Dim query As String = "INSERT INTO Productos (Nombre, Precio, Categoria) VALUES (@Nombre, @Precio, @Categoria)"
@@ -111,7 +114,8 @@ Public Class FormProductos
 
             If result = DialogResult.Yes Then
                 ' Conectar a la base de datos
-                Dim connectionString As String = "Server = localhost \ SQLEXPRESS;Database=pruebademo;Integrated Security=True;MultipleActiveResultSets=True;Timeout=120;"
+                Dim connectionString As String = ConfigurationManager.ConnectionStrings("SolucionExamen.My.MySettings.pruebademoConnectionString").ConnectionString
+
                 Using conn As New SqlConnection(connectionString)
                     Try
                         conn.Open()
@@ -188,7 +192,8 @@ Public Class FormProductos
         Dim productoId As Integer = Convert.ToInt32(dgvProductos.SelectedRows(0).Cells(0).Value)
 
         ' Aquí debes establecer la conexión con la base de datos
-        Dim connectionString As String = "Server = localhost \ SQLEXPRESS;Database=pruebademo;Integrated Security=True;MultipleActiveResultSets=True;Timeout=120;"
+        Dim connectionString As String = ConfigurationManager.ConnectionStrings("SolucionExamen.My.MySettings.pruebademoConnectionString").ConnectionString
+
 
         ' Consulta SQL para actualizar el cliente
         Dim query As String = "UPDATE Productos SET Nombre = @nombre, Precio = @precio, Categoria = @categoria WHERE ID = @id"

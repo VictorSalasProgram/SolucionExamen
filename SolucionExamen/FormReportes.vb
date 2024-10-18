@@ -2,6 +2,7 @@
 Imports Microsoft.Reporting.WinForms
 Imports Microsoft.ReportingServices.Diagnostics.Internal
 Imports SolucionExamen.Entidades
+Imports System.Configuration
 
 
 Public Class FormReportes
@@ -17,7 +18,8 @@ Public Class FormReportes
     End Sub
     Private Sub CargarReporte()
         ' Cadena de conexión a la base de datos
-        Dim connectionString As String = "Server=localhost\SQLEXPRESS;Database=pruebademo;Integrated Security=True;MultipleActiveResultSets=True;Timeout=120;"
+        Dim connectionString As String = ConfigurationManager.ConnectionStrings("SolucionExamen.My.MySettings.pruebademoConnectionString").ConnectionString
+
 
         ' Consulta SQL que quieres ejecutar (ajusta según tu tabla y columnas)
         Dim query As String = "SELECT ID, Nombre, Precio, Categoria FROM productos"
