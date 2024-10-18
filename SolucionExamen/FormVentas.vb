@@ -8,8 +8,10 @@ Public Class FormVentas
 
     Private Sub FormVentas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
+
             ' Cargar la lista de ventas en el DataGridView
             dgvVentas.DataSource = VentaBL.ObtenerVentas()
+            dgvVentas.Columns("ID").Visible = False
 
             ' Cargar la lista de clientes en el ComboBox principal
             Dim clientes As List(Of Cliente) = ClienteBL.ObtenerClientes()

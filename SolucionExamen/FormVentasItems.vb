@@ -16,6 +16,7 @@ Public Class FormVentasItems
     Private Sub FormVentasItems_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' Cargar los ítems del DataGridView o lo que necesites cargar inicialmente
         CargarVentasItems("")
+        dgvVentasItems.Columns("ID").Visible = False
 
         ' Llamar al método para cargar los productos en el ComboBox
         CargarProductos()

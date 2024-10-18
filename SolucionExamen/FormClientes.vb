@@ -12,6 +12,7 @@ Public Class FormClientes
     Private Sub FormClientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' Cargar todos los clientes al inicio
         CargarClientes("")
+        dgvClientes.Columns("ID").Visible = False
     End Sub
 
     Private Sub txtBuscadprClientes_TextChanged(sender As Object, e As EventArgs) Handles txtBuscadorClientes.TextChanged

@@ -8,6 +8,7 @@ Public Class FormProductos
         Try
             'Usamos la instancia clienteBL para llamar a ObtenerClientes
             dgvProductos.DataSource = ProductoBL.ObtenerProductos()
+            dgvProductos.Columns("ID").Visible = False
         Catch ex As Exception
             MessageBox.Show("Error al cargar el formulario: " & ex.Message)
         End Try
